@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOID // Dispatch History</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .order-card { margin-bottom: 18px; }
+  .order-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px; }
+  .order-status { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border: 1px solid var(--line-bright); clip-path: var(--hex-sm); color: var(--teal); }
+  .order-item-line { display:flex; justify-content:space-between; font-size:13px; color:var(--text-dim); padding:4px 0; }
+  .confirm-banner { border: 1px solid var(--teal); color: var(--teal); padding: 14px 18px; clip-path: var(--hex-sm); margin: 24px 0; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/index.html" class="brand">
+      <span class="brand-mark">V0</span>
+      <span>VOID<small>SIGNAL-INTERCEPT COMMERCE</small></span>
+    </a>
+    <nav class="nav">
+      <a href="/index.html">Arsenal</a>
+      <a href="/cart.html" class="nav-icon-link">Cart<span class="badge" id="cart-badge" style="display:none;">0</span></a>
+      <span id="nav-auth"></span>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="eyebrow" style="margin-top:28px;">Dispatch Log</div>
+  <h1 style="margin:8px 0 0;">Your orders</h1>
+  <div id="confirm-banner"></div>
+  <div id="orders-list" style="margin-top:24px; padding-bottom:60px;">Loading...</div>
+</div>
+
+<footer>VOID CYBERSTORE — FOR AUTHORIZED SECURITY RESEARCH &amp; TESTING ONLY</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/orders.js"></script>
+</body>
+</html>

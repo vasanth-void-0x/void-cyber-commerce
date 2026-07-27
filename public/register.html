@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOID // New Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/index.html" class="brand">
+      <span class="brand-mark">V0</span>
+      <span>VOID<small>SIGNAL-INTERCEPT COMMERCE</small></span>
+    </a>
+    <nav class="nav"><span id="nav-auth"></span></nav>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="panel form-narrow">
+    <div class="eyebrow">New Identity</div>
+    <h1 style="margin:10px 0 20px;">Register</h1>
+    <form id="register-form">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" required minlength="8" autocomplete="new-password">
+      </div>
+      <div class="form-error" id="register-error"></div>
+      <button class="btn btn-primary btn-block" type="submit" id="register-btn">Create account</button>
+    </form>
+    <div class="form-note">Already registered? <a href="/login.html">Log in</a></div>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/auth-register.js"></script>
+</body>
+</html>

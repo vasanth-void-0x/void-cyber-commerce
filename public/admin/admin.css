@@ -46,3 +46,43 @@ table.admin-table select { background: var(--bg-panel); color: var(--text); bord
   .admin-tab { white-space: nowrap; margin-right: 6px; border-left: none; border-bottom: 2px solid transparent; }
   .admin-tab.active { border-left: none; border-bottom-color: var(--teal); }
 }
+
+
+/* Modern admin experience */
+.admin-shell { background: linear-gradient(135deg, rgba(139,92,246,.025), transparent 42%); }
+.admin-sidebar {
+  position: sticky;
+  top: 73px;
+  height: calc(100vh - 73px);
+  background: rgba(8,11,16,.78);
+  backdrop-filter: blur(16px);
+}
+.admin-tab {
+  position: relative;
+  clip-path: var(--hex-sm);
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+.admin-tab:hover { transform: translateX(3px); background: rgba(139,92,246,.045); }
+.admin-tab.active {
+  color: #fff;
+  border-left-color: var(--violet);
+  background: linear-gradient(90deg, rgba(139,92,246,.16), rgba(45,212,191,.025));
+}
+.stat-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(139,92,246,.07), rgba(11,15,20,.82));
+  clip-path: var(--hex);
+  box-shadow: 0 18px 45px rgba(0,0,0,.22);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.stat-card:hover { transform: translateY(-4px); border-color: rgba(139,92,246,.42); }
+.stat-value { background: linear-gradient(90deg,#fff,#c4b5fd); -webkit-background-clip:text; background-clip:text; color:transparent; }
+table.admin-table tbody tr { transition: background .2s ease; }
+table.admin-table tbody tr:hover { background: rgba(139,92,246,.035); }
+.tab-panel.active { animation: admin-panel-in .3s ease both; }
+@keyframes admin-panel-in { from { opacity:0; transform:translateY(7px); } to { opacity:1; transform:none; } }
+@media (max-width:760px) {
+  .admin-sidebar { position:static; height:auto; background:rgba(8,11,16,.94); }
+  .admin-main { padding:22px 16px 50px; overflow-x:hidden; }
+  .panel { overflow-x:auto; }
+}

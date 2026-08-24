@@ -10,6 +10,7 @@ function renderProducts(products) {
     return;
   }
   gridEl.innerHTML = products.map(cardHtml).join('');
+  window.revealThreatMart?.(gridEl);
 }
 
 function productImage(slug) {

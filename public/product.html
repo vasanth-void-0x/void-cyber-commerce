@@ -9,12 +9,11 @@
 <link rel="stylesheet" href="/css/style.css">
 <link rel="icon" type="image/webp" href="/images/branding/threatmart-v-mark.webp">
 <style>
-  .detail-grid { display: grid; grid-template-columns: 340px 1fr; gap: 40px; padding: 20px 0 60px; }
-  .detail-glyph { height: 320px; display: grid; place-items: center; font-family: var(--font-display); font-size: 64px; color: var(--violet); background: repeating-linear-gradient(135deg, rgba(139,92,246,0.06) 0 2px, transparent 2px 12px); border: 1px solid var(--line); clip-path: var(--hex); }
-  .detail-title { font-size: 30px; margin: 6px 0 4px; }
-  .detail-price { font-size: 26px; font-family: var(--font-display); margin: 14px 0; }
-  .add-row { display: flex; gap: 14px; align-items: center; margin: 24px 0; }
-  @media (max-width: 760px) { .detail-grid { grid-template-columns: 1fr; } }
+  .detail-grid { display:grid; grid-template-columns:minmax(300px,420px) 1fr; gap:56px; padding:24px 0 72px; align-items:start; }
+  .detail-title { font-size:clamp(30px,4vw,44px); line-height:1.08; margin:8px 0 8px; }
+  .detail-price { font-size:32px; font-family:var(--font-display); margin:18px 0 10px; }
+  .add-row { display:flex; gap:14px; align-items:center; margin:28px 0; }
+  @media (max-width:800px) { .detail-grid { grid-template-columns:1fr; gap:28px; } .detail-image { max-width:520px; } }
 </style>
 </head>
 <body>

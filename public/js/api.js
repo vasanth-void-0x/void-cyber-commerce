@@ -114,3 +114,69 @@ function requireLogin(redirectMsg) {
 }
 
 document.addEventListener('DOMContentLoaded', renderNav);
+
+
+// Global visual experience: progressive enhancement only.
+(function initThreatMartExperience() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealSelector = '.panel, .card, .trust-strip, .catalog-head, .breadcrumb, .order-card, .stat-card';
+
+  function revealWithin(root = document) {
+    const elements = root.matches?.(revealSelector) ? [root] : [...root.querySelectorAll(revealSelector)];
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      elements.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+    elements.forEach((el) => {
+      if (el.dataset.revealBound) return;
+      el.dataset.revealBound = 'true';
+      el.classList.add('reveal-item');
+      revealObserver.observe(el);
+    });
+  }
+
+  const revealObserver = !reduceMotion && 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -24px' })
+    : null;
+
+  window.revealThreatMart = revealWithin;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-ready');
+
+    const progress = document.createElement('div');
+    progress.className = 'scroll-progress';
+    progress.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(progress);
+
+    const topbar = document.querySelector('.topbar');
+    const updateScroll = () => {
+      const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      document.documentElement.style.setProperty('--scroll-progress', `${Math.min(100, (scrollY / max) * 100)}%`);
+      topbar?.classList.toggle('is-scrolled', scrollY > 12);
+    };
+    updateScroll();
+    addEventListener('scroll', updateScroll, { passive: true });
+
+    if (!reduceMotion && matchMedia('(pointer:fine)').matches) {
+      addEventListener('pointermove', (event) => {
+        document.body.style.setProperty('--pointer-x', `${event.clientX}px`);
+        document.body.style.setProperty('--pointer-y', `${event.clientY}px`);
+      }, { passive: true });
+    }
+
+    revealWithin(document);
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) revealWithin(node);
+      }));
+    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+  });
+})();

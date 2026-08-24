@@ -92,14 +92,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   color: var(--text); letter-spacing: 0.04em;
 }
 .brand-logo {
-  width: 44px; height: 44px; flex: 0 0 44px;
-  object-fit: contain; filter: drop-shadow(0 0 8px rgba(139,92,246,0.35));
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(139,92,246,0.35));
 }
 .brand-copy { line-height: 1.05; }
 .brand-copy::first-letter { color: var(--violet); }
-.auth-panel { position: relative; overflow: visible; }
-.auth-brand { display: flex; justify-content: center; margin: -12px 0 -34px; }
-.auth-brand img { width: 220px; height: auto; object-fit: contain; filter: drop-shadow(0 0 18px rgba(139,92,246,0.2)); }
+.auth-panel {
+  position: relative;
+  overflow: hidden;
+  padding-top: 22px;
+}
+.auth-brand {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+.auth-brand img {
+  width: auto;
+  height: 190px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(139,92,246,0.2));
+}
 
 .brand-mark {
   width: 30px; height: 30px; display: grid; place-items: center;
@@ -331,7 +350,8 @@ footer {
   .brand-logo { width: 38px; height: 38px; flex-basis: 38px; }
   .brand-copy { font-size: 17px; }
   .brand small { font-size: 8px; }
-  .auth-brand img { width: 190px; }
+  .auth-brand { height: 165px; }
+  .auth-brand img { width: auto; height: 165px; }
   .hero h1 { font-size: 28px; }
   .cart-row { grid-template-columns: 44px 1fr; row-gap: 8px; }
   .nav { gap: 12px; }

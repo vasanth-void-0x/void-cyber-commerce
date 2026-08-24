@@ -1,4 +1,4 @@
-# VOID // Cyberstore
+# ThreatMart — Cybersecurity & IoT Tools Marketplace
 
 A full-stack e-commerce site for a cybersecurity / IoT pentest hardware store.
 Theme: "intercepted alien signal console" — dark violet/teal, hex-cut panels, terminal-style labels.

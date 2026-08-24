@@ -14,7 +14,7 @@ async function load() {
     const { product } = await api(`/products/${encodeURIComponent(slug)}`);
     currentProduct = product;
     document.getElementById('crumb-name').textContent = product.name;
-    document.title = `VOID // ${product.name}`;
+    document.title = `ThreatMart // ${product.name}`;
     render(product);
   } catch (e) {
     wrap.innerHTML = `<div class="empty-state"><h3>Signal lost</h3>That device could not be located in the catalog.</div>`;

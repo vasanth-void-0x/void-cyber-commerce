@@ -21,6 +21,10 @@ async function load() {
   }
 }
 
+function productImage(slug) {
+  return `/images/products/${encodeURIComponent(slug)}.webp`;
+}
+
 function render(p) {
   const tag = stockTag(p.stock);
   const specRows = Object.entries(p.specs || {})
@@ -30,7 +34,7 @@ function render(p) {
   wrap.innerHTML = `
     <div class="detail-grid">
       <div>
-        <div class="detail-glyph">${escapeHtml(p.glyph)}</div>
+        <div class="detail-image"><img src="${productImage(p.slug)}" alt="${escapeHtml(p.name)}" width="720" height="720"></div>
       </div>
       <div>
         <div class="card-cat">${escapeHtml(p.category)}</div>

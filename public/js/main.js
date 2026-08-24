@@ -12,11 +12,15 @@ function renderProducts(products) {
   gridEl.innerHTML = products.map(cardHtml).join('');
 }
 
+function productImage(slug) {
+  return `/images/products/${encodeURIComponent(slug)}.webp`;
+}
+
 function cardHtml(p) {
   const tag = stockTag(p.stock);
   return `
     <a class="card" href="/product.html?slug=${encodeURIComponent(p.slug)}">
-      <div class="card-glyph">${escapeHtml(p.glyph)}</div>
+      <div class="card-image"><img src="${productImage(p.slug)}" alt="${escapeHtml(p.name)}" width="720" height="720" loading="lazy" decoding="async"></div>
       <div class="card-cat">${escapeHtml(p.category)}</div>
       <div class="card-name">${escapeHtml(p.name)}</div>
       <div class="card-desc">${escapeHtml(p.short_desc)}</div>

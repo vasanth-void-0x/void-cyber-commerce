@@ -27,18 +27,28 @@
 
 <div class="shell">
   <section class="hero">
-    <div class="status-strip"><span class="pulse-dot"></span> CHANNEL OPEN · 12 DEVICES BROADCASTING</div>
-    <h1>Hardware for those who<br>read between the <span class="accent">packets.</span></h1>
-    <p>Field-tested pentest, RF and IoT security hardware — sourced for authorized red-team engagements, research labs and defensive hardening. No fluff, just tools that work.</p>
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <div class="status-strip"><span class="pulse-dot"></span> CHANNEL OPEN · 12 DEVICES BROADCASTING</div>
+        <h1>Hardware for those who<br>read between the <span class="accent">packets.</span></h1>
+        <p>Field-tested pentest, RF and IoT security hardware — sourced for authorized red-team engagements, research labs and defensive hardening. No fluff, just tools that work.</p>
+      </div>
+
+      <div class="hero-search" role="search" aria-label="Product catalog search">
+        <div class="search-kicker">// EXPLORE THE ARSENAL</div>
+        <label class="search-label" for="search-input">Find security hardware</label>
+        <div class="search-input-wrap">
+          <span aria-hidden="true">&gt;_</span>
+          <input type="text" id="search-input" placeholder="Search devices...">
+        </div>
+        <select id="category-select" aria-label="Filter by category">
+          <option value="">All categories</option>
+        </select>
+        <div class="search-foot"><span class="pulse-dot"></span> LIVE CATALOG · 12 DEVICES</div>
+      </div>
+    </div>
     <div class="hero-scan"></div>
   </section>
-
-  <div class="toolbar">
-    <input type="text" id="search-input" placeholder="// search the catalog...">
-    <select id="category-select">
-      <option value="">All categories</option>
-    </select>
-  </div>
 
   <div id="grid" class="grid">
     <div class="empty-state">Establishing connection...</div>

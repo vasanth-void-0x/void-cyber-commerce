@@ -36,6 +36,10 @@ app.get('*', (req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`[VOID] transmission live on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`[VOID] transmission live on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
